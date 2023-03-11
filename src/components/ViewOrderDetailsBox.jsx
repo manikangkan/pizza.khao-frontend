@@ -3,11 +3,11 @@ import React from "react";
 import OrderDetails from "./OrderDetails";
 import OrderItemBox from "./OrderItemBox";
 import OrderPriceDetails from "./OrderPriceDetails";
-import HomeFooter from "./HomeFooter";
+
 const ViewOrderDetailsBox = ({ isModelOpen, onClose }) => {
   return (
     <>
-      <section className="h-screen w-screen fixed top-0 left-0 right-0 backdrop-brightness-50 backdrop-blur-sm flex items-center justify-center">
+      <section className="fixed top-0 left-0 right-0 backdrop-brightness-50 backdrop-blur-sm flex items-center justify-center">
         <div className=" bg-white w-[40%] relative">
           <div
             className="absolute -right-9 -top-1 cursor-pointer text-white hover:text-red-400 transition-none"
@@ -28,7 +28,6 @@ const ViewOrderDetailsBox = ({ isModelOpen, onClose }) => {
           <OrderPriceDetails />
         </div>
       </section>
-      <HomeFooter />
     </>
   );
 };
