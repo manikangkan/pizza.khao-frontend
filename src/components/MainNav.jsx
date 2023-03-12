@@ -98,7 +98,7 @@ const MainNav = () => {
                 } h-12`}
               >
                 <li className="tracking-wide font-medium text-sm">
-                  <Link to="/account">My Account</Link>
+                  <Link to="/account/settings">My Account</Link>
                 </li>
                 <li className="tracking-wide font-medium text-sm">
                   <Link to="/resturent-menu">Cart</Link>

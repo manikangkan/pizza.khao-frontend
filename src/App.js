@@ -9,6 +9,7 @@ import ResturentMenu from "./pages/ResturentMenu";
 import MyOrder from "./pages/MyOrder";
 import CheckOut from "./pages/CheckOut";
 import MyAccount from "./pages/MyAccount";
+import AccountAddress from "./pages/AccountAddress";
 const App = () => {
   const { pathname } = useLocation();
 
@@ -29,7 +30,8 @@ const App = () => {
       <Route path="/resturent-menu" element={<ResturentMenu />} />
       <Route path="/my-order" element={<MyOrder />} />
       <Route path="/checkout" element={<CheckOut />} />
-      <Route path="/account" element={<MyAccount />} />
+      <Route path="/account/settings" element={<MyAccount />} />
+      <Route path="/account/address" element={<AccountAddress />} />
     </Routes>
   );
 };

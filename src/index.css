@@ -135,3 +135,12 @@ input[type="number"] {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+.accountBar {
+  min-height: calc(100% - 82px);
+}
+.accountMenu.active {
+  background: rgba(255, 0, 0, 0.1);
+  font-weight: 600;
+  color: rgba(255, 0, 0, 0.8);
+}

@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import AccountNav from "../components/AccountNav";
 import MainNav from "../components/MainNav";
+
 const MyAccount = () => {
+  const [readOnly, setReadOnly] = useState({
+    name: true,
+    email: true,
+    contact: true,
+  });
+  const [firstName, setFirstName] = useState("Rajkumar");
+  const [lastName, setLastName] = useState("Kalita");
+  const [phoneNo, setPhoneNo] = useState(9101121717);
+  const [email, setEmail] = useState("raj@gmail.com");
+
+  const handleEditClick = (filed) => {
+    setReadOnly({ ...readOnly, [filed]: false });
+  };
+  const handleCancelClick = (filed) => {
+    setReadOnly({ ...readOnly, [filed]: true });
+  };
+
   return (
     <>
       <section>
@@ -13,59 +32,163 @@ const MyAccount = () => {
           </h1>
         </div>
       </section>
-      <section className="flex items-center gap-4 p-20 bg-slate-50">
-        <div className="flex-[0.3] flex flex-col gap-4">
-          <div className="flex items-center p-4 gap-2 bg-white shadow-md">
-            <img src="/images/profile-pic.svg" alt="profile pic" />
-            <p className="flex flex-col gap-1">
-              <span className="text-xs">Hello,</span>
-              <span className="text-red-600 font-semibold text-base">
-                Rajkumar Kalita
-              </span>
-            </p>
+      <section className="flex items-start gap-4 p-20 bg-slate-50 h-screen">
+        <AccountNav />
+        <div className="flex-1 bg-white shadow-md p-10 flex flex-col min-h-full gap-6">
+          <h1 className="uppercase text-golden font-semibold tracking-wider text-xl">
+            Personal Information
+          </h1>
+          <div className="max-w-xl flex flex-col gap-4">
+            <div className="flex flex-col gap-4 w-full">
+              <div className="flex w-full items-center justify-between">
+                <label className="text-gray-500 text-base">Name</label>
+                {readOnly.name ? (
+                  <div
+                    onClick={() => handleEditClick("name")}
+                    className={`uppercase text-base text-blue-500 font-semibold cursor-pointer`}
+                  >
+                    Edit
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => handleCancelClick("name")}
+                    className={`uppercase text-base text-red-500 font-semibold cursor-pointer`}
+                  >
+                    Cancel
+                  </div>
+                )}
+              </div>
+              <div className="flex w-full items-center justify-between gap-6">
+                <div
+                  className={`flex items-center w-full justify-center h-12 rounded border-2 ${
+                    readOnly.name ? "border-blue-100" : "border-blue-300"
+                  } overflow-hidden`}
+                >
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    readOnly={readOnly.name}
+                    className={`h-full ${
+                      readOnly.name
+                        ? "bg-slate-100 text-gray-600"
+                        : "bg-transparent text-gray-700"
+                    } w-full px-4`}
+                    placeholder="Your first and middle name here*"
+                  />
+                </div>
+                <div
+                  className={`flex items-center w-full justify-center h-12 rounded border-2 ${
+                    readOnly.name ? "border-blue-100" : "border-blue-300"
+                  } overflow-hidden`}
+                >
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    readOnly={readOnly.name}
+                    className={`h-full ${
+                      readOnly.name
+                        ? "bg-slate-100 text-gray-600"
+                        : "bg-transparent text-gray-700"
+                    } w-full px-4`}
+                    placeholder="Your last name here*"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="bg-white shadow-md">
-            <div className="uppercase text-gray-500 p-3 font-semibold border-b-[1px]">
-              My orders
-            </div>
-            <div className="border-b-[1px]">
-              <div className="uppercase text-gray-500 p-3 font-semibold border-b-[1px]">
-                Account settings
+          <div className="max-w-xl flex flex-col gap-4">
+            <div className="flex flex-col gap-4 w-full">
+              <div className="flex w-full items-center justify-between">
+                <label className="text-gray-500 text-base">Email</label>
+                {readOnly.email ? (
+                  <div
+                    onClick={() => handleEditClick("email")}
+                    className={`uppercase text-base text-blue-500 font-semibold cursor-pointer`}
+                  >
+                    Edit
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => handleCancelClick("email")}
+                    className={`uppercase text-base text-red-500 font-semibold cursor-pointer`}
+                  >
+                    Cancel
+                  </div>
+                )}
               </div>
-              <div className="flex flex-col py-4">
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  Personal Information
-                </span>
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  Manage Address
-                </span>
+              <div
+                className={`flex items-center w-full justify-center h-12 rounded border-2 ${
+                  readOnly.email ? "border-blue-100" : "border-blue-300"
+                } overflow-hidden`}
+              >
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  readOnly={readOnly.email}
+                  className={`h-full ${
+                    readOnly.email
+                      ? "bg-slate-100 text-gray-600"
+                      : "bg-transparent text-gray-700"
+                  } w-full px-4`}
+                  placeholder="Your email id here*"
+                />
               </div>
             </div>
-            <div className="border-b-[1px]">
-              <div className="uppercase text-gray-500 p-3 font-semibold border-b-[1px]">
-                My sutff
+          </div>
+          <div className="max-w-xl flex flex-col gap-4">
+            <div className="flex flex-col gap-4 w-full">
+              <div className="flex w-full items-center justify-between">
+                <label className="text-gray-500 text-base">
+                  Contact number
+                </label>
+                {readOnly.contact ? (
+                  <div
+                    onClick={() => handleEditClick("contact")}
+                    className={`uppercase text-base text-blue-500 font-semibold cursor-pointer`}
+                  >
+                    Edit
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => handleCancelClick("contact")}
+                    className={`uppercase text-base text-red-500 font-semibold cursor-pointer`}
+                  >
+                    Cancel
+                  </div>
+                )}
               </div>
-              <div className="flex flex-col py-4">
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  My coupons
-                </span>
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  My reviews & ratings
-                </span>
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  My favourite
-                </span>
-                <span className="hover:bg-blue-50 cursor-pointer px-10 py-2 hover:text-blue-800">
-                  My cart
-                </span>
+              <div
+                className={`flex items-center w-full justify-center h-12 rounded border-2 ${
+                  readOnly.contact ? "border-blue-100" : "border-blue-300"
+                } overflow-hidden`}
+              >
+                <input
+                  type="number"
+                  value={phoneNo}
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  readOnly={readOnly.contact}
+                  className={`h-full ${
+                    readOnly.contact
+                      ? "bg-slate-100 text-gray-600"
+                      : "bg-transparent text-gray-700"
+                  } w-full px-4`}
+                  placeholder="Your phone number here*"
+                />
               </div>
             </div>
-            <div className="uppercase text-gray-500 p-3 font-semibold border-b-[1px]">
-              Logout
-            </div>
+          </div>
+          <div className="max-w-xl flex flex-col gap-4">
+            <label className="text-gray-500 text-base">Joined on</label>
+            <span
+              className={`flex items-center w-full px-4 h-12 rounded border-2 border-blue-100" overflow-hidden bg-slate-50 text-gray-600`}
+            >
+              28 July 2001
+            </span>
           </div>
         </div>
-        <div className="flex-1 bg-white shadow-md"></div>
       </section>
     </>
   );
