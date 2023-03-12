@@ -7,8 +7,8 @@ import OrderPriceDetails from "./OrderPriceDetails";
 const ViewOrderDetailsBox = ({ isModelOpen, onClose }) => {
   return (
     <>
-      <section className="fixed top-0 left-0 right-0 backdrop-brightness-50 backdrop-blur-sm flex items-center justify-center">
-        <div className=" bg-white w-[40%] relative">
+      <section className="fixed top-0 left-0 right-0 backdrop-brightness-50 backdrop-blur-sm flex items-center justify-center min-h-screen">
+        <div className=" bg-white w-[40%] relative shadow-lg rounded">
           <div
             className="absolute -right-9 -top-1 cursor-pointer text-white hover:text-red-400 transition-none"
             onClick={isModelOpen && onClose}
