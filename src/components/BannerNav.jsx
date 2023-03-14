@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PhoneEnabledOutlinedIcon from "@mui/icons-material/PhoneEnabledOutlined";
 import MopedOutlinedIcon from "@mui/icons-material/MopedOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -7,9 +7,13 @@ import SearchBar from "./SearchBar";
 
 const BannerNav = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const [isModelOpen, setIsModelOpen] = useState(0);
 
   const handleShowSearchBar = () => {
     setShowSearchBar(true);
+  };
+  const toggleMenu = (index) => {
+    setIsModelOpen(index);
   };
 
   useEffect(() => {
@@ -35,18 +39,66 @@ const BannerNav = () => {
             <span className="text-white font-bold text-2xl">91333 46789</span>
           </p>
         </div>
-        <div className="flex items-center justify-center gap-8">
+        <div className="flex items-center justify-center gap-8 relative">
           <Link className="uppercase tracking-wider text-white font-bold text-sm">
             Home
           </Link>
-          <Link className="uppercase tracking-wider text-white font-bold text-sm">
+          <Link
+            className="uppercase tracking-wider text-white font-bold text-sm relative"
+            onMouseEnter={() => toggleMenu(1)}
+            onMouseLeave={() => toggleMenu(0)}
+          >
             Pages
+            <ul
+              className={`${
+                isModelOpen === 1 ? "nav-links active" : "nav-links"
+              } bg-white`}
+            >
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                About Us
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Our Serices
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Our team
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Book a table
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Contact Us
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Get in touch
+              </li>
+              <li className="tracking-wide font-medium text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 hover:font-semibold">
+                Coming Soon
+              </li>
+            </ul>
           </Link>
           <Link
-            className="uppercase tracking-wider text-white font-bold text-sm"
-            to="/menu"
+            className="uppercase tracking-wider text-white font-bold text-sm relative"
+            onMouseEnter={() => toggleMenu(2)}
+            onMouseLeave={() => toggleMenu(0)}
           >
             Menu
+            <ul
+              className={`${
+                isModelOpen === 2 ? "nav-links active" : "nav-links"
+              } h-12`}
+            >
+              <NavLink to="/menu">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:font-semibold hover:text-red-600 text-gray-700">
+                  All pizzas
+                </li>
+              </NavLink>
+              <NavLink to="/resturent-menu" className="text-gray-700 ">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:font-semibold hover:text-red-600">
+                  Resturent Menu
+                </li>
+              </NavLink>
+            </ul>
           </Link>
           <Link>
             <img src="/images/logo-light.png" alt="logo" className="h-16" />

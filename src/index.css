@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +10,7 @@
   font-family: "Lato", sans-serif;
   transition: all 0.3s;
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -120,7 +121,6 @@ input[type="number"] {
   text-transform: capitalize;
 }
 .nav-links li:hover {
-  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 .nav-links.active {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AccountNav from "../components/AccountNav";
 import MainNav from "../components/MainNav";
+import PromptModel from "../components/PromptModel";
 
 const MyAccount = () => {
   const [readOnly, setReadOnly] = useState({
@@ -8,6 +9,7 @@ const MyAccount = () => {
     email: true,
     contact: true,
   });
+  const [showPrompt, setShowPrompt] = useState(false);
   const [firstName, setFirstName] = useState("Rajkumar");
   const [lastName, setLastName] = useState("Kalita");
   const [phoneNo, setPhoneNo] = useState(9101121717);
@@ -188,6 +190,22 @@ const MyAccount = () => {
               28 July 2001
             </span>
           </div>
+          <div
+            className="text-red-500 font-semibold cursor-pointer hover:text-red-600"
+            onClick={() => setShowPrompt(true)}
+          >
+            Delete Account
+          </div>
+          {showPrompt && (
+            <div className="h-screen w-screen top-0 left-0 right-0 fixed flex items-center justify-center backdrop-blur-md backdrop-brightness-50">
+              <PromptModel
+                displayText={"Are you sure you want to leave?"}
+                buttonText={"Yes, Confirm"}
+                caneclText={"No, Let me stay"}
+                onClose={() => setShowPrompt(false)}
+              />
+            </div>
+          )}
         </div>
       </section>
     </>

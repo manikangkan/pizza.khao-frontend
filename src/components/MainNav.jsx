@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MopedOutlinedIcon from "@mui/icons-material/MopedOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import SearchBar from "./SearchBar";
@@ -48,21 +48,25 @@ const MainNav = () => {
                   isModelOpen === 1 ? "nav-links active" : "nav-links"
                 }`}
               >
-                <li className="tracking-wide font-medium text-sm">About Us</li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
+                  About Us
+                </li>
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   Our Serices
                 </li>
-                <li className="tracking-wide font-medium text-sm">Our team</li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
+                  Our team
+                </li>
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   Book a table
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   Contact Us
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   Get in touch
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   Coming Soon
                 </li>
               </ul>
@@ -78,11 +82,11 @@ const MainNav = () => {
                   isModelOpen === 2 ? "nav-links active" : "nav-links"
                 } h-12`}
               >
-                <li className="tracking-wide font-medium text-sm">
-                  <Link to="/menu">All Pizzas</Link>
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
+                  <NavLink to="/menu">All Pizzas</NavLink>
                 </li>
-                <li className="tracking-wide font-medium text-sm">
-                  <Link to="/resturent-menu">Resturent Menu</Link>
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
+                  <NavLink to="/resturent-menu">Resturent Menu</NavLink>
                 </li>
               </ul>
             </li>
@@ -97,16 +101,16 @@ const MainNav = () => {
                   isModelOpen === 3 ? "nav-links active" : "nav-links"
                 } h-12`}
               >
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   <Link to="/account/settings">My Account</Link>
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   <Link to="/resturent-menu">Cart</Link>
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   <Link to="/checkout">Checkout</Link>
                 </li>
-                <li className="tracking-wide font-medium text-sm">
+                <li className="tracking-wide font-medium text-sm hover:bg-red-50 hover:text-red-600">
                   <Link to="/my-order">My Orders</Link>
                 </li>
               </ul>

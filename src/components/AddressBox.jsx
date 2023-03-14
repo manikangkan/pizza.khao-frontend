@@ -7,6 +7,7 @@ const AddressBox = () => {
   const [showMenu, setShowMenu] = useState(0);
   const [showPrompt, setShowPrompt] = useState(false);
   const [isModelOpen, setIsModelOpen] = useState(false);
+
   const handleAddressModel = () => {
     setIsModelOpen(true);
   };
@@ -65,6 +66,7 @@ const AddressBox = () => {
           <PromptModel
             displayText={"Are you sure you want to delete this address?"}
             buttonText={"Yes, Delete"}
+            caneclText={"Cancel"}
             onClose={() => setShowPrompt(false)}
           />
         </div>

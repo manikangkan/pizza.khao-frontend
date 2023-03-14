@@ -1,6 +1,6 @@
 import React from "react";
 
-const PromptModel = ({ displayText, buttonText, onClose }) => {
+const PromptModel = ({ displayText, buttonText, onClose, caneclText }) => {
   return (
     <div className="bg-white rounded-md shadow-lg p-8 flex flex-col gap-10">
       <p className="text-gray-700 font-semibold text-lg">{displayText}</p>
@@ -12,7 +12,7 @@ const PromptModel = ({ displayText, buttonText, onClose }) => {
           className="text-blue-600 font-semibold cursor-pointer"
           onClick={onClose}
         >
-          Cancel
+          {caneclText}
         </span>
       </div>
     </div>

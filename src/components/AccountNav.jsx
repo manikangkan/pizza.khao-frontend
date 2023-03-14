@@ -83,9 +83,12 @@ const AccountNav = () => {
         </div>
       </div>
       <div className="flex items-center justify-between p-4">
-        <p className="flex items-center gap-6 cursor-pointer hover:text-blue-700">
+        <p
+          className="flex items-center gap-6 cursor-pointer hover:text-blue-700"
+          onClick={() => setShowPrompt(true)}
+        >
           <PowerSettingsNewIcon className="text-red-400" />
-          <span className="uppercase font-semibold text-gray-500 tracking-wide">
+          <span className="uppercase font-semibold text-gray-500 tracking-wide hover:font-semibold hover:text-red-600">
             Logout
           </span>
         </p>
