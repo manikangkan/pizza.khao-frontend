@@ -27,16 +27,19 @@ const MainNav = () => {
       <nav className="w-full flex items-center justify-between px-10 h-20">
         <div className="h-full">
           <ul className="flex items-center gap-12 h-full justify-center">
-            <li>
+            <NavLink to="/">
               <img
                 src="/images/logo.png"
                 alt="logo"
                 className="h-14 cursor-pointer"
               />
-            </li>
-            <li className="uppercase text-gray-700 font-bold tracking-widest h-full grid place-items-center text-xs cursor-pointer">
+            </NavLink>
+            <NavLink
+              to="/"
+              className="uppercase text-gray-700 font-bold tracking-widest h-full grid place-items-center text-xs cursor-pointer"
+            >
               Home
-            </li>
+            </NavLink>
             <li
               className="uppercase text-gray-700 font-bold tracking-widest relative cursor-pointer h-full grid place-items-center text-xs"
               onMouseEnter={() => toggleMenu(1)}

@@ -10,6 +10,8 @@ import MyOrder from "./pages/MyOrder";
 import CheckOut from "./pages/CheckOut";
 import MyAccount from "./pages/MyAccount";
 import AccountAddress from "./pages/AccountAddress";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 const App = () => {
   const { pathname } = useLocation();
 
@@ -32,6 +34,8 @@ const App = () => {
       <Route path="/checkout" element={<CheckOut />} />
       <Route path="/account/settings" element={<MyAccount />} />
       <Route path="/account/address" element={<AccountAddress />} />
+      <Route path="/register" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

@@ -109,8 +109,11 @@ const BannerNav = () => {
           <Link className="uppercase tracking-wider text-white font-bold text-sm">
             Blog
           </Link>
-          <Link className="uppercase tracking-wider text-white font-bold text-sm">
-            My Orders
+          <Link
+            to="/login"
+            className="uppercase tracking-wider text-white font-bold text-sm"
+          >
+            Login
           </Link>
         </div>
         <div className="flex items-center justify-center gap-8">
